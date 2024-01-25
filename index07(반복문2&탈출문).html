@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        var arr = [1,2,3,4,5];
+
+        //향상된 포문 for ~ in
+        for(var a in arr) {
+            //console.log(a); //인덱스 값을 저장함
+            console.log('인덱스:', a, ', arr값:', arr[a]); //값을 사용
+        }
+
+
+        //object에서는 키를 담아줍니다.
+        var obj = {'a': 100, 'b': 200, 'c': 300};
+        for(var a in obj){ //키, 값
+            console.log(a, obj[a]);
+        }
+
+        console.log("-----------------------")
+        ///////////////////////////////////////////////////////////
+        //탈출문 break, continue
+
+        for(var i=0; i <arr.length; i++){
+            if(i==3)  continue; //break;
+            console.log(arr[i])
+        }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 타입</title>
+</head>
+<body>
+    
+    <script>
+        var num1 = '10';
+        var num2 = 10;
+
+        console.log (num1 == num2); // == 값만 비교
+        console.log (num1 === num2); // === 값과 타입까지 비교
+
+        console.log(num1 != num2);
+        console.log(num1 !== num2);
+
+
+        var a;
+        var b = null;
+        console.log(a, b, a==b); //true 값만 비교했을때 
+        console.log(a, b, a===b); //false 값과 타입 (undefined != null)
+
+        var c = false;
+        var d = "   "; //false로 판별
+
+        console.log(c == d);
+        console.log(c === d); //공백과 false의 값은 같지만 type은 다르다
+
+
+
+
+    </script>
+
+
+</body>
+</html>

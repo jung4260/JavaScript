@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //익명함수 -> 화살표 함수로 대체 (ES6)
+        
+        //(1) (2) (3) 다 똑같은 형태
+        
+        //(1) 
+        //var a = function () {}
+
+        //(2) 
+        //var a = (a, b) => {
+        //     return a + b;
+        //}
+
+        //(3)
+        var a = (a, b) => a + b
+        console.log(    a(1, 2)    );
+        
+        console.log("------------------------")
+        
+        function func1 () {
+            console.log("함수 실행됨");
+            console.log(arguments);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[6]);
+
+            return arguments[8] + arguments[9] + arguments[0];
+        }
+
+        // func1();
+        // func1(1);
+        // func1(1,2);
+        func1(10,9,8,7,6,5,4,3,2,1);
+
+        var x = func1(10,9,8,7,6,5,4,3,2,1);
+
+        console.log("마지막문제: " + x);
+
+    </script>
+
+
+</body>
+</html>
