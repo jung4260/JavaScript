@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+
+            var input = document.getElementById("input");
+            input.onblur = function () { console.log("blur 동작함") };
+            input.onfocus = function () { console.log("focus 동작함") };
+
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    
+
+    <h3>이 셀렉트 태그에 change라는 이벤트를 건다. (이벤트를 거는 방법은 자유)</h3>
+
+    <select id="select" onchange="func()">
+        <option value="">홍길동</option>
+        <option value="">강감찬</option>
+        <option value="">이순신</option>
+    </select>
+
+    <h3>focus이벤트와 blur이벤트 걸기</h3>
+    이름:<input type="text" id="input">
+
+
+
+    <h3>mouseenter이벤트 걸기</h3>
+    <div style="width: 100px; height:100px; border: 1px solid #777" id="mouse"></div>
+
+    <script>
+        var mouse = document.getElementById("mouse");
+        mouse.addEventListener("mouseenter", function () {console.log("mouseenter 동작함")})
+        mouse.addEventListener("mouseleave", function () {console.log("mouse out")})
+
+        function func() {
+            console.log("change 이벤트 동작함")
+        }
+
+    </script>
+
+</body>
+</html>
