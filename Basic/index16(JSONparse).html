@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //원격 어딘가 데이터를 보내거나 받을때, JSON형식을 많이 사용합니다.
+        //데이터를 전송 할 때, 전달되는 데이터는 문자열이어야 합니다.
+
+        var obj = {
+            name: "홍길동",
+            count: 1,
+            date: [
+                {id: "1", title: "hello"},
+                {id: "2", title: "잘가세요"}
+            ]
+        }
+
+        //obj -> JSON형식 문자열 변환
+        console.log(    JSON.stringify(obj)     );
+        var str = JSON.stringify(obj)
+
+
+        //json형식 문자열 -> obj 
+        console.log(    JSON.parse ( str )      );
+        //단, JSON형식의 문자열을 obj로 변경할 때, 아주 엄격한 규칙이 하나 있습니다.
+        //키는 반드시 쌍따옴표("")로 묶여야 합니다.
+        //var o = JSON.parse('{id: 1, name: "홍길동"}'); **에러**
+        var o = JSON.parse('{"iod": 4, "name": "adam"}');
+        console.log( o );
+        
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

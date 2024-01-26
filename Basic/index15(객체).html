@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // var a = {키 : 값}
+
+        var a = {name: "홍길동", age: 20, arr: [1,2,3], func: function() {}, 1:123 }
+        // ***사용법 2가지***
+
+        // ***첫번쨰***
+        // console.log(typeof a);
+        // console.log(a.name);
+        // console.log(a.age);
+        // console.log(a.arr);
+        // console.log(a.func);
+        // console.log() //Integer는 키 참조가 안됨 a.1 하지만 a[1]은 가능함
+        
+
+        // ***두번째***
+        console.log( a["name"] );
+        console.log( a["age"] );
+        console.log( a["arr"] );
+        console.log( a["arr"][0] );
+        console.log( a["func"] );
+        console.log( a[1] );
+
+        console.log("-------------------------------")
+
+        var exam = {math: 80, eng: 70, kor: 90};
+        var person = {name: "이순신", 
+                    exam: exam
+                    }
+        // var person = {name: "이순신",
+        //               exam: {math: 80, eng: 70, kor: 90}
+        //              }
+        
+        //person안에 exam안에 있는 eng값을 참조하는 2가지 방법 
+        console.log(person.exam.eng)
+        console.log(person.exam["eng"])
+        console.log(person["exam"].eng)
+
+        
+
+        console.log("--------------배열---------------")
+        //배열안에 객체
+        var arr = [
+            {id: 1, title: 'hello1', regdate:'2024-01-24'},
+            {id: 2, title: 'hello2', regdate:'2024-01-25'},
+            {id: 3, title: 'hello3', regdate:'2024-01-26'},
+        ]
+        
+        console.log( arr[0].id );
+        console.log( arr[0]["id"]);
+        ///////////////////////////////////////////////
+        //arr을 반복을 돌리고, 그 안에 있는 값을 전부 출력.
+        
+        for(var i=0; i<arr.length; i++){
+            console.log("id:" + arr[i].id);
+            console.log("title:" + arr[i].title);
+            console.log("regdate:" + arr[i].regdate);
+        }
+
+
+
+        console.log("--------------------------------2nd 객체 선언방법--------------")
+        //2nd 객체 선언방법 - function을 사용합니다.
+        //this 키워드로 변수를 나타내면, 객체생성시 변수가 됩니다.
+        function Student(age) {
+            this.name = "홍길동"
+            this.age = age;
+            this.getInfo = function () {
+                return this.age;
+            }
+            this.setInfo = function(age){
+                this.age = age;
+            }
+        }
+
+        var s = new Student (20);
+        s.setInfo(40);
+        console.log( s.getInfo() );
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
