@@ -53,8 +53,10 @@
 
         btn2.onclick = function () {
             console.log(btn2)
+            console.log(hello);
             for(var i=0; i<hello.length; i++){
                 console.log(hello[i].value);
+                console.log(hello[i].name);
             }
         }
 
@@ -86,13 +88,13 @@
         // var options = document.getElementsByTagName("option");
         // console.log(options);
 
-        var select = document.getElementById("search");
-        var options = select.getElementsByTagName("option");
+        var select = document.getElementById("search"); // [**1**] select태그를 바디에서 얻고
+        var options = select.getElementsByTagName("option"); //[**2**] select.getElementsByTagName으로 select태그 안에서 "<option>"태그를 구해온다
         console.log(options)
 
         var btn3 = document.getElementById("btn3");
         btn3.onclick = function () {
-
+            console.log(options)
         }
 
 

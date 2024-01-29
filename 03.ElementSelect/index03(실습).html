@@ -60,5 +60,38 @@
     </script>
 
 
+
+
+    <hr>
+
+
+    <h3 id="title">선생님 방법</h3>
+
+    <select id="select" onchange="handleChange(this)">
+        <option value="1">선택</option>
+        <option value="2">hello</option>
+        <option value="3">안녕하세요</option>
+        <option value="4">你好</option>
+    </select>
+
+    <script>
+        var title = document.getElementById("title");
+
+        function handleChange(sel){
+            var a = sel.value;
+            if(a == "1"){
+                title.innerHTML = "단어를 선택하세요"
+            } else if(a == "2"){
+                title.innerHTML = "영어입니다."
+            } else if(a == "3"){    
+                title.innerHTML = "한국어입니다."
+            } else if(a == "4")
+                title.innerHTML = "중국어입니다."
+            }
+
+        
+
+    </script>
+
 </body>
 </html>

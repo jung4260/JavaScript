@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:focus {
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    아이디:<input type="text" id="id" class="sp">
+    <span id="span"></span>
+
+    <script>
+        var id = document.getElementById("id");
+        var span = document.getElementById("span");
+
+        id.onkeyup = function () {
+            if(id.value.length <= 4 ){   
+                span.innerHTML = "아이디가 4글자 이상이거든요?";
+                id.style.border = "2px solid red";
+            } else{
+                span.innerHTML = "";
+                id.style.border = "2px solid green";
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>
