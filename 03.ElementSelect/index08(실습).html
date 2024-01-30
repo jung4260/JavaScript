@@ -40,7 +40,7 @@
     </style>
     
 </head>
-<body id="body">
+<body>
     
     <header>
         <div class="center">
@@ -68,25 +68,27 @@
     
     <script>
 
-        var center = document.querySelector(".center");
-        var h2 = center.querySelector("h2");
         var dark = document.getElementById("dark");
         var bright = document.getElementById("bright");
-        var body = document.getElementById("body");
-        var inner = document.querySelector(".inner");
+        //var body = document.querySelector("body");        //body는 document의 자식임으로 document.body로 사용 가능
+        var all = document.querySelectorAll("p, a, h2");
         
 
-        dark.onclick = function () {
-            body.style.backgroundColor = "black";
-            h2.innerHTML = "style속성 활용하기";
-            body.style.color = "white";
-        }
+      dark.addEventListener('click', function() {
 
-        bright.onclick = function () {
-            body.style.backgroundColor = "white";
-            h2.innerHTML = "dark모드";
-            body.style.color = "black";
-        }
+            document.body.style.backgroundColor = "black"; 
+            for(var i = 0; i <all.length; i++){
+                all[i].style.color = "white";
+            }
+      });
+
+      bright.addEventListener('click', function() {
+
+            document.body.style.backgroundColor = "white";
+            for(var i = 0; i <all.length; i++){
+                all[i].style.color = "black";
+            }
+      });
 
     </script>
     

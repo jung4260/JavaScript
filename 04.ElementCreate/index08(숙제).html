@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>할일 목록 만들기</h2>
+    <h3></h3>
+
+    <input type="text" id="id" placeholder="이름을 입력하세요">
+    <button id="hello">확인</button>
+
+    <br>
+
+    <input type="text" placeholder="당신의 할일을 적으세요" id="todo">
+    <button id="btn">확인</button>
+    
+    <br>
+
+    <button id="deleteAll">전체삭제하기</button>
+
+
+    <ul id="list" class="li">
+    </ul>
+
+
+    <script>
+
+        var id = document.getElementById("id");
+        var hello = document.getElementById("hello");
+        var h3 = document.querySelector("h3");
+        var todo = document.getElementById("todo");
+        var list = document.getElementById("list");
+        var btn = document.getElementById("btn");
+
+        hello.onclick = function () {
+
+            h3.innerHTML = id.value + "님의 오늘 할 일";
+            hello.style.display = "none";
+            id.style.display = "none";
+
+        }
+
+        btn.onclick = function () {
+            
+            var del = document.createElement("button");
+            var li = document.createElement("li");
+
+            del.innerHTML = "X";
+            li.innerHTML = todo.value;
+            list.appendChild(li);
+            li.appendChild(del);
+            todo.value = "";
+
+            del.onclick = function () {
+
+                    li.remove();
+
+            }
+
+            var lis = document.querySelectorAll("li");
+
+            deleteAll.onclick = function() {
+                var yn = confirm("정말 전체 삭제하시겠습니까?");
+                if(yn === true){
+                    for(var i=0; i<lis.length; i++){
+                        lis[i].remove();
+                    }
+                }
+                
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>
