@@ -48,11 +48,18 @@
             
             var del = document.createElement("button");
             var li = document.createElement("li");
+            var up = document.createElement("button");
+            var down = document.createElement("button");
 
             del.innerHTML = "X";
+            up.innerHTML = "↑";
+            down.innerHTML = "↓";
             li.innerHTML = todo.value;
             list.appendChild(li);
             li.appendChild(del);
+            li.appendChild(up);
+            li.appendChild(down);
+
             todo.value = "";
 
             del.onclick = function () {
@@ -71,6 +78,34 @@
                     }
                 }
                 
+            }
+
+            up.onclick = function () {
+                var previous = up.parentElement.previousElementSibling;
+                var current = up.parentElement;
+                var table = li.parentElement;
+
+                if(previous == null){
+                    alert("떙");
+                    return;
+                }
+
+                table.insertBefore(current, previous);
+
+            }
+
+            down.onclick = function () {
+                var next = up.parentElement.nextElementSibling;
+                var current = up.parentElement;
+                var table = li.parentElement;
+
+                if(next == null){
+                    alert("떙");
+                    return;
+                }
+
+                table.insertBefore(next, current);
+
             }
 
         }
