@@ -65,13 +65,24 @@
         }
         
         right.ondrop = function () {
-            console.log(event.target)
+            
             event.preventDefault();
             clone.classList.add("order_box");
             list_order.appendChild(clone);
+
             
         }
-        
+
+        right.ondragstart = function () {
+            var box = event.target;
+            console.log(box);
+        }
+        right.ondragend = function () {
+            var box = event.target;
+            var prev_box = event.target.previousElementSibling;
+            var parent = box.parentElement;
+            parent.insertBefore(box, prev_box);
+        }
 
     </script>
 
