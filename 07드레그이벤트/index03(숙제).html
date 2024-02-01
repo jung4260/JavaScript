@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul, li {list-style: none; padding:0px; margin:0px}
+        .wrap {display: flex; flex-direction: row; justify-content: center; align-items: center;}
+
+        .list {display: flex; width:900px; flex-flow: row wrap; justify-content: center; align-items: center;}
+        .box {border: 1px solid #777; width:180px; height:280px; margin: 10px;}
+        
+        .right {border:1px solid #777; height: 500px; width:200px;}
+        .order_box {border:1px solid #777; height:20px; width:200px;}
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <h2>드랍아이템 만들기</h2>
+
+        <div class="left">
+
+            <ul class="list">
+                <li class="box" draggable="true">아이템1</li>
+                <li class="box" draggable="true">아이템2</li>
+                <li class="box" draggable="true">아이템3</li>
+                <li class="box" draggable="true">아이템4</li>
+                <li class="box" draggable="true">아이템5</li>
+                <li class="box" draggable="true">아이템6</li>
+                <li class="box" draggable="true">아이템7</li>
+                <li class="box" draggable="true">아이템8</li>
+            </ul> 
+
+        </div>
+
+        <div class="right">
+            주문목록
+            <ul class="list-order">
+            </ul>
+        </div>
+
+
+    </div>
+
+    <script>
+        var clone = null;
+        var list = document.querySelector(".list");
+        var list_order = document.querySelector(".list-order");
+        var right = document.querySelector(".right")
+
+        list.ondragstart = function () {
+            console.log("start")
+            console.log(event.target);
+            var box = event.target;
+            clone = box.cloneNode(true);
+        }
+
+        right.ondragover = function() {
+            event.preventDefault();
+            console.log("ongoing");
+        }
+        
+        right.ondrop = function () {
+            event.preventDefault();
+            list_order.appendChild(clone);
+        }
+        
+
+    </script>
+
+
+</body>
+</html>

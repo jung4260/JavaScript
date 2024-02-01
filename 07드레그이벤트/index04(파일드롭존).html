@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            border: 3px dotted #777;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <div class="container">
+        <p class="title">파일을 넣어주세요</p>
+    </div>
+
+    <script>
+        var container = document.querySelector(".container");
+        var title = document.querySelector(".title");
+
+        container.addEventListener("dragover", function() {
+            event.preventDefault();
+        })
+
+        container.addEventListener("drop", function (e) {
+            e.preventDefault();
+            console.log("1111");
+            //dataTransfer
+            //사용자가 드롭한 파일 데이터는 이벤트 객체의 dataTransfer객체에서 찾아 쓸 수 있습니다.
+            
+            console.log(event);
+            console.log(event.dataTransfer);
+            console.log(event.dataTransfer.files);
+            //*************************이 정보는 나중에 업로드시에 서버로 전달해야 하는 정보여서 잘 간직해야됩니다.*************************
+            console.log(event.dataTransfer.files[0]); //이 정보가 나중에 서버로 넘어가야됨
+
+            //파일명
+            console.log(event.dataTransfer.files[0].name)
+
+            title.remove(); // 기존 태그 삭제
+
+            var p = document.createElement("p");
+            p.innerHTML = event.dataTransfer.files[0].name; // 이름을 넣어줍니다.
+
+            container.appendChild(p);
+            
+        })
+
+
+    </script>
+
+
+</body>
+</html>

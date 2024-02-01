@@ -22,8 +22,17 @@
         box.onclick = function () {
             // this.style.backgroundColor = "red"; //여기서 this는 ul을 나타내기 때문에 옳지 않다.
             //console.log(event); //이벤트가 동작할 때 자동으로 event 객체 이벤트정보를 넣어줍니다.
-            console.log(event.target); //target은 실제 이벤트가 동작한 태그를 알려준다.
-            console.log(event.currentTarget); //실제 이벤트가 걸려있는 태그
+            //console.log(event.target); //target은 실제 이벤트가 동작한 태그를 알려준다.
+            //console.log(event.currentTarget); //실제 이벤트가 걸려있는 태그
+
+            console.dir(event.target); //dir을 넣어주면, 사용할 수 있는 속성을 볼 수 있음
+            
+            //이벤트가 동작한 태그가 ul이면 실행 안하면 됨
+            if(event.target.tagName != "LI"){
+                return;
+            }
+
+            event.target.style.backgroundColor = "red";
 
         }
 

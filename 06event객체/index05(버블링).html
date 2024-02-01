@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .func1{width: 300px; height: 300px; background-color: red;}
+        .func2{width: 200px; height: 200px; background-color: yellow;}
+        .func3{width: 100px; height: 100px; background-color: green;}
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="func1"> 부모
+        <div class="func2"> 중간
+            <div class="func3">
+                자식
+            </div> 
+        </div>
+    </div>
+
+
+    <script>
+        //이벤트 버블링 -> 부모, 자식에 이벤트가 걸려 있을 때, 자식->부모로 이벤트가 전파되는 특성
+        //버블링 이벤트가 실행되는 순서: 자식 -> 중간 -> 부모 순으로 실행
+        //그래서 부모에 이벤트를 걸면, 자식에서도 실행된다.
+        var func1 = document.querySelector(".func1");
+        var func2 = document.querySelector(".func2");
+        var func3 = document.querySelector(".func3");
+
+        //**Event Bubbling**
+        // func1.onclick = function() {
+        //     alert("func1번 부모부모부모부모")
+        // }
+        // func2.onclick = function() {
+        //     event.stopPropagation();
+        //     alert("func2번 중간중간중간중간중간")
+        // }
+        // func3.onclick = function() {
+        //     alert("func3번 자식자식자식자식자식")
+        // }
+
+        //**Event Capturing**
+        //실제 만들어보면 쫌 이상한 것을 느낄 수 있음.
+        //Capturing은 이벤트 리스너로만 만들 수 있음.
+        func1.addEventListener("click", function() {
+            alert("func1번 부모");
+        }, true); //캡처링
+
+        func2.addEventListener("click", function() {
+            event.stopPropagation(); //캡처링 중단
+            alert("func2번 중간");
+        }, true); //캡처링
+
+        func3.addEventListener("click", function() {
+            alert("func3번 자식");
+        }, true); //캡처링
+
+    </script>
+
+
+</body>
+</html>

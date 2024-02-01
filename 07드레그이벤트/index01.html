@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .x {display: flex;}
+        .canvas{width: 300px; height: 300px; border: 1px solid #777;}
+        .box {width: 100px; height: 100px; border: 1px solid #777;}
+        .container {width: 300px; height: 300px; border: 1px solid #777; overflow:auto;} 
+    </style>
+
+</head>
+<body>
+    <h3>마우스로 태그를 옮기는데 drag이벤트를 사용할 수 있습니다.</h3>
+
+    <div class="x">
+        <div class="canvas">
+            <div class="box" draggable="true">박스</div>
+        </div>
+
+        <div class="container">
+            넣을 곳
+        </div>
+    </div>
+
+
+    <script>
+        var canvas = document.querySelector("canvas");
+        // 드래그 적용 시킬 *박스* -> 3개 이벤트
+        var box = document.querySelector(".box");
+        var clone = null;
+        box.ondragstart = function () {
+            console.log("dragstart 드래그 이벤트 발생");
+            clone = box.cloneNode(true);
+        }
+
+        // box.addEventListener("drag", function() {
+        //     console.log("drag 드래그 이벤트 발생")
+        // })
+        
+        // box.ondragend = function () {console.log("dragend 드래그 이벤트 발생")};
+
+        ///////////////타겟 박스////////////////////
+        // 적용 시킬 타겟 -> 이벤트 4개
+        var container =document.querySelector(".container");
+        //container.ondragenter = function () {console.log("dragenter 이벤트 발생");}
+
+        container.ondragover = function () {
+            event.preventDefault(); //브라우저는 파일을 자동으로 open하는 기본 이벤트가 있는데, 그 기본 이벤트를 막아야 합니다.
+            console.log("dragover 이벤트 발생");
+        }
+        
+        //container.ondragleave = function () {console.log("dragleave 이벤트 발생");}
+
+        container.ondrop = function() {
+            event.preventDefault(); //브라우저는 파일을 자동으로 open하는 기본 이벤트가 있는데, 그 기본 이벤트를 막아야 합니다.
+            console.log("drop 이벤트 발생");
+
+            //박스를 옮긴다.
+            // container.appendChild(box);
+            // console.log(canvas)
+            // console.log(container)
+
+
+            //박스 복제
+            container.appendChild(clone);
+        }
+
+    </script>
+
+
+
+</body>
+</html>
