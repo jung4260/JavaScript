@@ -10,10 +10,11 @@
         .wrap {display: flex; flex-direction: row; justify-content: center; align-items: center;}
 
         .list {display: flex; width:900px; flex-flow: row wrap; justify-content: center; align-items: center;}
-        .box {border: 1px solid #777; width:180px; height:280px; margin: 10px;}
+        .box {border: 1px solid #777; width:180px; height:280px;}
         
         .right {border:1px solid #777; height: 500px; width:200px;}
         .order_box {border:1px solid #777; height:20px; width:200px;}
+       
 
     </style>
 
@@ -37,8 +38,9 @@
 
         </div>
 
+        
         <div class="right">
-            주문목록
+            주문목록:  
             <ul class="list-order">
             </ul>
         </div>
@@ -53,8 +55,6 @@
         var right = document.querySelector(".right")
 
         list.ondragstart = function () {
-            console.log("start")
-            console.log(event.target);
             var box = event.target;
             clone = box.cloneNode(true);
         }
@@ -65,8 +65,11 @@
         }
         
         right.ondrop = function () {
+            console.log(event.target)
             event.preventDefault();
+            clone.classList.add("order_box");
             list_order.appendChild(clone);
+            
         }
         
 
