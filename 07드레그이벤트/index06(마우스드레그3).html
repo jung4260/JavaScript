@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        section {height: 1000px;}
+        .canvas {border: 1px solid #000; width: 500px; height: 500px;}
+        .box {background-color: red; width: 50px; height: 50px;}
+
+        /* 박스를 옴기기 위한 중요한 디자인 */
+        .canvas {position: relative;}
+        .box {position: absolute; left: 0; top: 0;}
+    </style>
+</head>
+<body>
+    
+    <h3>마우스이벤트를 활용한 박스 옴기기</h3>
+    <section>
+        <div class="canvas" >
+            <div class="box">box</div>
+        </div>
+    </section>
+
+    <script>
+        var canvas = document.querySelector(".canvas");
+        var box = document.querySelector(".box");
+
+        var drag = false;
+        var dev = {x:0, y:0}; //box의 클릭한 위치를 보정할 변수
+        var canvasDev = {x:canvas.offsetLeft, y:canvas.offsetTop}; //canvas위치값을 보정할 변수
+
+        //document전역에 적용 받게 한다.
+
+        document.onmousemove = function() {
+
+            if(drag == false) return;
+            
+            
+            box.style.left = event.pageX - dev.x - canvasDev.x + "px";
+            box.style.top = event.pageY - dev.y - canvasDev.y + "px";
+
+    
+
+        }
+
+
+        
+        document.onmousedown = function() {
+            //**마지막**  이벤트 타겟이 box가 아니면 종료시킨다.
+            if(event.target != box) return;
+
+            
+            drag = true; 
+            
+            dev.x = event.offsetX;
+            dev.y = event.offsetY;
+
+        }
+        document.onmouseup = function() {
+            drag = false 
+        }
+    </script>
+
+
+</body>
+</html>

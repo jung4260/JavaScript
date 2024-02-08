@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //원격에서 받아온, xml파일을 변환하는 방법입니다.
+        fetch("example.xml")
+        .then(function(response){
+           return response.text();
+        })
+        .then(function(data){
+            var parser = new DOMParser(); //파싱할 데이터, 타입
+            var result = parser.parseFromString(data, "text/xml");
+
+            console.log(result);
+            var datas = result.querySelectorAll("data"); //data태그를 얻는다
+
+            for(var i=0; i<datas.length; i++){
+               var name = datas[i].querySelector("name");
+               var version = datas[i].querySelector("version");
+               var price = datas[i].querySelector("price");
+
+               console.log(name);
+               console.log(name.innerHTML);
+               console.log(version);
+               console.log(version.innerHTML);
+               console.log(price);
+               console.log(price.innerHTML);
+
+
+            }
+            
+
+        })
+    </script>
+
+
+
+
+</body>
+</html>

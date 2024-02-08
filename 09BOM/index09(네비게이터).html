@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //사용자의 위치정보
+        console.log(navigator);
+        console.log(navigator.geolocation)
+
+        //navigator.geolocation.getCurrentPosition(성공콜백, 에러콜백)
+        navigator.geolocation.getCurrentPosition(success, error);
+
+        function success(position) {
+            console.log("성공", position);
+            console.log(position.timestamp);
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+        }
+        function error(err) {
+            console.log("실패", err);
+        }
+
+
+    </script>
+
+
+</body>
+</html>

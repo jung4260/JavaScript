@@ -47,6 +47,24 @@
         var dropzone = document.querySelector(".dropzone");
         var wrap = document.querySelector("wrap");
 
+        list.addEventListener("dragstart", function(){
+            if(event.target.tagName != "LI") return;
+
+            clone = event.target.cloneNode(true); //이벤트가 일어난 대상을 복사
+        })
+
+        dropzone.addEventListener("dragover", function(){
+            event.preventDefault();
+        })
+
+
+        dropzone.addEventListener("drop", function() {
+            event.preventDefault();
+
+            dropzone.appendChild(clone);
+
+        })
+
 
     </script>
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        //현재날짜
+        var date = new Date (); //현재 날짜
+        //var date2 = new Date ("2024-02-02");
+        var date2 = new Date (2024, 02, 02, 14, 20, 30); //날짜 지정
+        console.log(date);
+        console.log(date2)
+
+        //-------------------------------------------------------------------
+        console.log(    Date.now()      )
+        console.log(    date.getTime()  ); //현재시간 밀리초 (날짜 차이를 계산할때 사용)
+
+        console.log(  "UTC:  " +  date.toUTCString()      ); //세계협정시
+        console.log(  "한국시간:   " + date.toLocaleTimeString()     ); //로컬시간
+        console.log(   "ISO:   " + date.toISOString()      ); //세계표준시
+
+        //년 월 일 시분초
+        console.log(    date.getFullYear()  ) // 년
+        console.log(    date.getMonth()     ) // 월
+        console.log(    date.getDate()      ) // 일
+        console.log(    date.getHours()     ) // 시
+        console.log(    date.getMinutes()   ) // 분
+        console.log(    date.getSeconds()   ) // 초
+        
+
+    </script>
+
+</body>
+</html>

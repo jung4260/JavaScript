@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        section {height: 1000px;}
+        .canvas {border: 1px solid #000; width: 500px; height: 500px;}
+        .box {background-color: red; width: 50px; height: 50px;}
+
+        /* 박스를 옴기기 위한 중요한 디자인 */
+        .canvas {position: relative;}
+        .box {position: absolute; left: 0; top: 0;}
+    </style>
+</head>
+<body>
+    
+    <h3>마우스이벤트를 활용한 박스 옴기기</h3>
+    <section>
+        <div class="canvas" >
+            <div class="box">box</div>
+        </div>
+    </section>
+
+    <script>
+        var canvas = document.querySelector(".canvas");
+        var box = document.querySelector(".box");
+
+        var drag = false;
+        var dev = {x:0, y:0}; //box의 클릭한 위치를 보정할 변수
+        var canvasDev = {x:canvas.offsetLeft, y:canvas.offsetTop}; //canvas위치값을 보정할 변수
+
+        canvas.onmousemove = function() {
+
+            //마우스를 움직일때 깜빡이는 현상이 있는데, box가 이벤트 버블링을 받기 때문에
+            //if(event.target.className != "canvas") return;
+
+            //5. 깜빡이는 현상은 이벤트 버블링 현상을 허용합니다.
+
+            if(drag == false) return;
+            // 1st
+            // box.style.left = event.offsetX + "px";
+            // box.style.top = event.offsetY + "px";
+
+            //3.상자위치 보정
+            //box.style.left = event.offsetX - dev.x + "px";
+            //box.style.top = event.offsetY - dev.y + "px";
+
+            //4. 깜빡이는 현상이 있는데, 그 이유는 빨간상자 안에서 마우스 이벤트를 받지 못하기 때문에 그렇습니다.
+
+
+            //5-1. 그 다음 상자의 이동을 이벤트 기반의 좌표가 아니라 도큐먼트 문서의 절대 좌표 기준으로 움직이면 됩니다.
+            box.style.left = event.pageX - dev.x - canvasDev.x + "px";
+            box.style.top = event.pageY - dev.y - canvasDev.y + "px";
+
+        }
+
+
+        //1. 마우스를 누른상태에서 움직이도록 처리
+        box.onmousedown = function() {
+            //console.log("마우스다운동작")
+            drag = true; //움직일 수 있다는 의미
+
+            //2. 마우스가 꼭지점을 따라다니게 되는데 사용자가 누른 좌표 보정
+            // console.log(event.target.offsetX)
+            // console.log(event.target.offsetY)
+            dev.x = event.offsetX;
+            dev.y = event.offsetY;
+
+        }
+        box.onmouseup = function() {
+            drag = false //다시 움직일 수 없음
+        }
+
+    </script>
+
+
+</body>
+</html>

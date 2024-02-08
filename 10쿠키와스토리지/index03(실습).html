@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap > img {width:300px; height:200px;}
+    </style>
+
+</head>
+<body>
+    
+    <h2>localStorage를 이용해서 마지막 2개 사진을 불러오기</h2>
+
+    <div class="wrap">
+        <img src="/10쿠키와스토리지/img/1.jpg" id="spring">
+        <img src="/10쿠키와스토리지/img/2.jpg" id="summer">
+        <img src="/10쿠키와스토리지/img/3.jpg" id="fall">
+        <img src="/10쿠키와스토리지/img/4.jpg" id="winter">
+    </div>
+
+    <button type="button" onclick="location.href='index03(실습-최신).html';">최신정보불러오기</button>
+    
+    <script>
+        var wrap = document.querySelector(".wrap");
+        wrap.onclick = function(e) {
+            if(e.target.tagName != "IMG") return;
+
+            setStorage(e.target);
+        }
+
+        function setStorage(img){
+            var x = img.src; //scr값
+            //빈 배열 생성
+            var arr = []
+
+            if(localStorage.getItem("item") != null){
+                arr = JSON.parse(localStorage.getItem("item"));
+            }
+            //길이가 2 이상이면 앞에서 이미지를 제거
+            if(arr.length >= 2){
+                arr.shift();
+            }
+
+            //사용자가 클릭한 이미지 src를 저장
+            arr.push(x)
+            localStorage.setItem(   "item", JSON.stringify(arr)   );
+        }
+
+    </script>
+
+ 
+
+</body>
+</html>
