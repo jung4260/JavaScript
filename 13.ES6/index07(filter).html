@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        //es6 문법은 아님
+        //filter - 콜백의 반환에 true가 있는 값을 필터링
+
+        var arr = [1,2,3,4,5,6,7,8,9,10];
+
+        // let result = arr.filter( function(x,y,z) {
+        //     console.log(x, y, z);
+        //     return x % 2 == 0 ;
+        // })
+
+        let result = arr.filter( (x) => x % 2 == 0 )
+        console.log(result); //2,4,6,8,10
+
+
+
+    </script>
+
+    
+</body>
+</html>

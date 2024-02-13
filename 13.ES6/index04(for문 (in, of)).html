@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        var arr = [1,2,3,4];
+
+        for(let i in arr) { //인덱스 출력됨
+            console.log(i);
+        }
+
+        for(let i of arr) { //값이 출력됨
+            console.log(i);
+        }
+
+        ///////////////////////////////////////////
+        const arr2 = [
+            {id: "aaa123", age: 20}, 
+            {id: "bbb123", age:30}
+        ];
+
+        //i에 구조분해 할당 -> 
+        for (let {id, age} of arr2) {
+            console.log(id);
+            console.log(age);
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        <script src="index10.js"></script> 
+    -->
+
+    <script type="module">
+        //**가져오기**
+        //1st 방식 
+        // import {name, age, getInfo, sum, add} from './index10.js';
+
+        // console.log(name);
+        // console.log(age);
+        // getInfo();
+        // add(10);
+        // console.log(sum);
+
+        //2nd 방식
+        // import * as test from './index10.js';
+        // console.log(test.name);
+        // console.log(test.age);
+        // test.getInfo();
+        // test.add(100);
+        // console.log( test.sum);
+
+
+        //3rd 방식
+        import {name as n, age as a} from './index10.js';
+        console.log(n); 
+        console.log(a); 
+
+
+    </script>
+
+
+
+</body>
+</html>
